@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mushroom Classifier</title>
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='mus.jpeg') }}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: sticky;
+            top: 0;
+        }
+
+        .menu li {
+            float: left;
+        }
+
+        .menu li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .menu li a:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* New Section Styles */
+        #new-section {
+            height: 500px;
+            background-image: url('mus.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .section-content {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        #new-section h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="mushrooms.html">Mushrooms</a></li>
+        <li><a href="prediction.html">Prediction</a></li>
+    </ul>
+
+    <div class="content">
+        <h1>Welcome to Mushroom Classifier</h1>
+        <p>This is a website for classifying mushroom species using machine learning.</p>
+    </div>
+
+    <section id="new-section">
+        <div class="section-overlay">
+            <div class="section-content">
+                <h2>New Section</h2>
+                <p>Additional details about the webpage go here.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mushrooms</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(174, 77, 77);
+            font-size: 24px;
+            padding: 20px;
+            transition: background-image 1s ease-in-out;
+            scroll-snap-align: start;
+        }
+
+        .content {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <section class="section section1">
+        <img src="{{ url_for('static', filename='bole.jpg') }}" alt="Species 1 Image">
+        <div class="content">
+            <h1>Boletus</h1>
+            <p>Information about Mushroom Species 1 goes here.</p>
+            <!-- Add your details about Species 1 -->
+        </div>
+    </section>
+
+    <section class="section section2">
+        <img src="{{ url_for('static', filename='lact.jpg') }}" alt="Species 2 Image">
+        <div class="content">
+            <h1>Lactarius</h1>
+            <p>Information about Mushroom Species 2 goes here.</p>
+            <!-- Add your details about Species 2 -->
+        </div>
+    </section>
+
+    <section class="section section3">
+        <img src="{{ url_for('static', filename='Russ.jpg') }}" alt="Species 3 Image">
+        <div class="content">
+            <h1>Russula</h1>
+            <p>Information about Mushroom Species 3 goes here.</p>
+            <!-- Add your details about Species 3 -->
+        </div>
+    </section>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+
+        function fadeInElements() {
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                if (rect.top < windowHeight && rect.bottom >= 0) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', fadeInElements);
+        window.addEventListener('load', fadeInElements);
+    </script>
+</body>
+</html>

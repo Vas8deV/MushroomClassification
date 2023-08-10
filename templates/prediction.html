@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction</title>
+    <style>
+        body {
+            background-color: rgba(205, 221, 132, 0.7);
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .left-half {
+            width: 50%;
+            background-image: url('{{ url_for('static', filename='pat.jpg') }}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .right-half {
+            width: 50%;
+            padding: 20px;
+        }
+
+        h1, p {
+            animation: fadeIn 1s ease-in-out;
+            animation-fill-mode: both;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #a38585;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            animation: fadeIn 1s ease-in-out;
+            animation-fill-mode: both;
+        }
+
+        .button:hover {
+            background-color: #6b4e4e;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-half"></div>
+        <div class="right-half">
+            <h1>Prediction</h1>
+            <p>Information about the prediction goes here.</p>
+
+            {% if result %}
+            <h2>Result:</h2>
+            <p>{{ result }}</p>
+            {% endif %}
+
+            <div class="button-container">
+                <a href="/" class="button">Go Back</a>
+                <form action="/prediction.html" method="POST" enctype="multipart/form-data">
+                    <label for="image-upload" class="button">Upload Image</label>
+                    <input type="file" id="image-upload" name="image" accept="image/*" style="display: none;">
+                    <input type="submit" value="Submit" class="button">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
